@@ -15,7 +15,7 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     /ctx/build_files/plasma.sh && \
     ostree container commit
 
-# Copy ctx contents to final image so they're available at runtime
-COPY --from=ctx / /ctx/
-    
+RUN mkdir -p /abc/context
+COPY --from=ctx / /abc/context/
+
 RUN bootc container lint
