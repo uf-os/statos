@@ -13,6 +13,7 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     /ctx/build_files/build.sh && \
     /ctx/build_files/github.sh && \
     /ctx/build_files/plasma.sh && \
+    /ctx/build_files/godot.sh && \
     ostree container commit
 
 RUN mkdir -p /abc/context
