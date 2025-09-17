@@ -1,7 +1,10 @@
 #!/bin/bash
 
-dnf5 config-manager addrepo --from-repofile=https://cli.github.com/packages/rpm/gh-cli.repo
-dnf5 install -y gh --repo gh-cli
+# Add GitHub CLI repository
+curl -fsSL https://cli.github.com/packages/rpm/gh-cli.repo | tee /etc/yum.repos.d/github-cli.repo > /dev/null
+
+# Install GitHub CLI  
+dnf5 install -y gh
 
 rpm --import https://packages.microsoft.com/keys/microsoft.asc
 tee /etc/yum.repos.d/vscode.repo > /dev/null <<EOF
