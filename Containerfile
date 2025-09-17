@@ -13,5 +13,8 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     /ctx/build_files/build.sh && \
     /ctx/build_files/github.sh && \
     ostree container commit
+
+# Copy ctx contents to final image so they're available at runtime
+COPY --from=ctx / /ctx/
     
 RUN bootc container lint
