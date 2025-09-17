@@ -1,6 +1,8 @@
 FROM scratch AS ctx
 COPY build_files /build_files
 COPY press_kit /press_kit
+COPY assets /assets
+
 
 FROM ghcr.io/ublue-os/bazzite-nvidia-open:stable
 
