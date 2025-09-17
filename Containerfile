@@ -12,6 +12,7 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     --mount=type=tmpfs,dst=/tmp \
     /ctx/build_files/build.sh && \
     /ctx/build_files/github.sh && \
+    /ctx/build_files/plasma.sh && \
     ostree container commit
 
 # Copy ctx contents to final image so they're available at runtime
